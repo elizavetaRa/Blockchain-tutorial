@@ -15,6 +15,25 @@ router.get('/protected', checkLoggedIn, (req, res) => {
     res.send({ success: true })
 })
 
+router.get("/userProgress", checkLoggedIn, (req, res)=>{
+    User.findById(req.user.id).then(user=>{
+        res.send({user.progress})
+    })
+})
+
+router.post("/userProgress", checkLoggedIn, (req, res)=>{
+    
+    let newProgress = req.user.progress++
+    User.findByIdandUpdate(req.user.id, {
+        progress: newProgress
+    }).then(user=>{
+        res.send({user.progress})
+    })
+})
+
+
+router.post("/blockchain")
+
 router.use('/auth', authRoutes)
 
 router.use((req, res) => {
