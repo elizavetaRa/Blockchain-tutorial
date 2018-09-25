@@ -12,8 +12,12 @@ const userSchema = new Schema({
     },
     progress: {
         type: Number,
-        default: 1,
+        default: 0,
     },
+    blockchain: {
+        type:  Schema.Types.ObjectId,
+        ref: "Blockchain"
+    }
 })
 
 module.exports = mongoose.model('User', userSchema)

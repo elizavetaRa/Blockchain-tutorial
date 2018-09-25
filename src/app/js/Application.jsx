@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
+import api from './utils/api'
 
 import Auth from './Auth'
 import Home from './Home'
@@ -15,8 +16,9 @@ import Policy from "./Policy"
 import Proof from "./Proof"
 import Concensus from "./Concensus"
 import About from "./About"
+import Introduction from "./Introduction"
 
-import api from './utils/api'
+
 
 class Application extends React.Component {
     constructor(props) {
@@ -40,13 +42,14 @@ class Application extends React.Component {
                 <div>
                     <Navigation user={this.state.user} />
                     <Switch>
-                        <Route exact path="/" render={() => <Home user={this.state.user} />} />
+                        <Route exact path="/" render={() => <Introduction user={this.state.user} />} />
                         <Route exact path="/profile" render={() => <Profile user={this.state.user} />} />
                         <Route
                             path="/auth"
                             render={() => <Auth setUser={this._setUser} resetUser={this._resetUser} />}
                         />
 
+                        
                         <Route exact path="/blockchain" render={() => <Blockchain/>}/>
                         <Route exact path="/blockchains" render={() => <Blockchains/>}/>
                         <Route exact path="/mining" render={() => <Mining/>}/>

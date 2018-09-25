@@ -14,40 +14,8 @@ const Navigation = props => {
                     </Link>
                     </span>
 
-                    <span>
-                        &nbsp; &nbsp; &nbsp;
-                    <Link className="link nav-link" to="/blockchain">
-                            Blockchain
-                    </Link>
-                    </span>
 
-                    <span>
-                        &nbsp; &nbsp; &nbsp;
-                    <Link className="link nav-link" to="/blockchains">
-                            Blockchains
-                    </Link>
-                    </span>
 
-                    <span>
-                        &nbsp; &nbsp; &nbsp;
-                    <Link className="link nav-link" to="/mining">
-                            Mining
-                    </Link>
-                    </span>
-
-                    <span>
-                        &nbsp; &nbsp; &nbsp;
-                    <Link className="link nav-link" to="/concensus">
-                            Network Concensus
-                    </Link>
-                    </span>
-
-                    <span>
-                        &nbsp; &nbsp; &nbsp;
-                    <Link className="link nav-link" to="/proof_of_work">
-                            Proof of Work
-                    </Link>
-                    </span>
 
                     <span>
                         &nbsp; &nbsp; &nbsp;
@@ -63,21 +31,52 @@ const Navigation = props => {
                     </Link>
                     </span>
 
-                    {props.user && (
-                        <span>
-                            &nbsp; &nbsp; &nbsp;
-                            <Link className="link nav-link" to="/profile">
-                                Profile
-                            </Link>
-                        </span>
-                    )}
-                </div>
-                <div>
+
+
                     {props.user ? (
-                        <Link className="link nav-link" to="/auth/logout">
-                            Logout
+                        <span>
+                            <span>
+                                &nbsp; &nbsp; &nbsp;
+                        <Link className="link nav-link" to="/blockchain">
+                                    Blockchain
                         </Link>
+                            </span>
+
+                            <span>
+                                &nbsp; &nbsp; &nbsp;
+                        <Link className="link nav-link" to="/blockchains">
+                                    Blockchains
+                        </Link>
+                            </span>
+
+                            <span>
+                                &nbsp; &nbsp; &nbsp;
+                        <Link className="link nav-link" to="/mining">
+                                    Mining
+                        </Link>
+                            </span>
+
+                            <span>
+                                &nbsp; &nbsp; &nbsp;
+                        <Link className="link nav-link" to="/concensus">
+                                    Network Concensus
+                        </Link>
+                            </span>
+
+                            <span>
+                                &nbsp; &nbsp; &nbsp;
+                         <Link className="link nav-link" to="/proof_of_work">
+                                    Proof of Work
+                        </Link>
+                            </span>
+
+                            <Link className="link nav-link" to="/auth/logout">
+                                Logout
+                        </Link>
+                        </span>
                     ) : (
+
+
                             <span>
                                 <Link className="link nav-link" to="/auth/sign-in">
                                     Sign in
@@ -86,11 +85,19 @@ const Navigation = props => {
                             <Link className="link nav-link" to="/auth/sign-up">
                                     Sign up
                             </Link>
+
+
+                                &nbsp; &nbsp; &nbsp;
+                            <Link className="link nav-link" to="/about">
+                                    About
+                            </Link>
+
+
                             </span>
                         )}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

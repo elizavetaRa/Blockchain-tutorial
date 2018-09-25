@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const User = require("../../models/User");
 
 const authRoutes = require('./auth')
 const { userMiddleware, checkLoggedIn } = require('../../utils/middleware')
@@ -15,19 +16,23 @@ router.get('/protected', checkLoggedIn, (req, res) => {
     res.send({ success: true })
 })
 
-router.get("/userProgress", checkLoggedIn, (req, res)=>{
+router.get("/userprogress", checkLoggedIn, (req, res)=>{
+    console.log("We are here!")
     User.findById(req.user.id).then(user=>{
-        res.send({user.progress})
+        console.log("We found user!")
+        let progress = user.progress
+        res.send({progress})
     })
 })
 
-router.post("/userProgress", checkLoggedIn, (req, res)=>{
+router.post("/userprogress", checkLoggedIn, (req, res)=>{
     
     let newProgress = req.user.progress++
-    User.findByIdandUpdate(req.user.id, {
+    User.findByIdAndUpdate(req.user.id, {
         progress: newProgress
     }).then(user=>{
-        res.send({user.progress})
+        let progress = user.progress
+        res.send({progress})
     })
 })
 
