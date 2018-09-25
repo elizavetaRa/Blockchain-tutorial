@@ -69,7 +69,7 @@ const Navigation = props => {
                                     Proof of Work
                         </Link>
                             </span>
-
+                                &nbsp; &nbsp; &nbsp;
                             <Link className="link nav-link" to="/auth/logout">
                                 Logout
                         </Link>
