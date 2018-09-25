@@ -78,6 +78,7 @@ const Navigation = props => {
 
 
                             <span>
+                                &nbsp; &nbsp; &nbsp;
                                 <Link className="link nav-link" to="/auth/sign-in">
                                     Sign in
                             </Link>
