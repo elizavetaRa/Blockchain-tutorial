@@ -42,7 +42,8 @@ class Application extends React.Component {
                 <div>
                     <Navigation user={this.state.user} />
                     <Switch>
-                        <Route exact path="/" render={() => <Content user={this.state.user} />} />
+                        <Route exact path="/" render = {()=><Home/>}/>
+                        <Route exact path="/learning" render={() => <Content user={this.state.user} />} />
                         <Route exact path="/profile" render={() => <Profile user={this.state.user} />} />
                         <Route
                             path="/auth"

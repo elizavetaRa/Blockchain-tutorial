@@ -9,11 +9,12 @@ import Introduction from './Introduction';
 class Content extends Component {
     constructor(props) {
         super(props)
-        console.log(props.user.progress)
+
         this.state = {
             progress: props.user.progress
 
         }
+
         console.log(this.state.progress)
         this.updateProgress = this.updateProgress.bind(this)
 
@@ -21,13 +22,17 @@ class Content extends Component {
 
 
     componentDidMount() {
+        if (this.props.user) {
 
-        api.get("/api/userprogress").then(data => {
-            console.log("Data.progress", data.progress)
-            this.setState({
-                progress: data.progress
+            api.get("/api/userprogress").then(data => {
+                console.log("Data.progress", data.progress)
+                this.setState({
+                    progress: data.progress
+                })
             })
-        })
+
+        }
+
 
 
 
@@ -47,7 +52,6 @@ class Content extends Component {
 
     render() {
 
-        
         if (this.state.progress == 0) {
             return (
 
@@ -86,7 +90,6 @@ class Content extends Component {
             <h2>{this.state.progress}</h2>
             Error</div>)
     }
-
 
 }
 
