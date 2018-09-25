@@ -7,7 +7,8 @@ const blockSchema = new Schema({
     hash: String,
     previoushash: String,
     data: String,
-    nonce: Number
+    nonce: Number,
+    name: String
 })
 
 module.exports = mongoose.model('Block', blockSchema)

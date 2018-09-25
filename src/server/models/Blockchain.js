@@ -2,13 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const blockchainSchema = new Schema({
-    creator: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: "User"
-    },
-    headerBlock: {
-        type: String,
+    genesisBlock: {
+        type: Schema.Types.ObjectId, ref: 'Block'
     },
     blocks:[{type: Schema.Types.ObjectId, ref: 'Block'}]
 })

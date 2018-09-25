@@ -21,7 +21,7 @@ class Introduction extends Component {
 
 
             api.get("/api/userprogress").then(data => {
-                this.state.progress = data
+                this.getState.progress = data
             })
 
 
@@ -34,12 +34,12 @@ class Introduction extends Component {
 
 
             api.post("/api/userprogress").then(data => {
-
-
+                
                 this.setState({
-                    progress: data
+                    progress: data.progress
                 })
 
+                console.log("GOT DATA in post: ", this.state.progress)
 
 
             })

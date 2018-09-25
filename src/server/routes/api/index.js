@@ -16,24 +16,30 @@ router.get('/protected', checkLoggedIn, (req, res) => {
     res.send({ success: true })
 })
 
-router.get("/userprogress", checkLoggedIn, (req, res)=>{
+router.get("/userprogress", (req, res) => {
     console.log("We are here!")
-    User.findById(req.user.id).then(user=>{
+    User.findById(req.user.id).then(user => {
         console.log("We found user!")
         let progress = user.progress
-        res.send({progress})
+        res.send({ progress })
     })
 })
 
-router.post("/userprogress", checkLoggedIn, (req, res)=>{
-    
-    let newProgress = req.user.progress++
-    User.findByIdAndUpdate(req.user.id, {
-        progress: newProgress
-    }).then(user=>{
-        let progress = user.progress
-        res.send({progress})
+router.post("/userprogress", checkLoggedIn, (req, res) => {
+
+    let progress;
+    User.findById(req.user._id).then(user => {
+        progress = user.progress + 1
+        User.findByIdAndUpdate(req.user._id, {
+            progress: progress
+        }, { new: true }).then(user => {
+
+            res.send(user)
+        })
+
     })
+
+
 })
 
 
