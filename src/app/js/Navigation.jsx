@@ -88,11 +88,6 @@ const Navigation = props => {
                             </Link>
 
 
-                                &nbsp; &nbsp; &nbsp;
-                            <Link className="link nav-link" to="/about">
-                                    About
-                            </Link>
-
 
                             </span>
                         )}
