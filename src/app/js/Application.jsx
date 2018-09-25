@@ -7,15 +7,12 @@ import api from './utils/api'
 import Auth from './Auth'
 import Home from './Home'
 import Navigation from './Navigation'
-import Profile from './Profile'
 import NotFound from './NotFound'
 import Blockchain from "./Blockchain"
-import Blockchains from "./Blockchains"
+import Types from "./Types"
 import Mining from "./Mining"
-import Policy from "./Policy"
-import Proof from "./Proof"
-import Concensus from "./Concensus"
-import About from "./About"
+import Terminology from "./Terminology"
+import DLT from "./DLT"
 import Content from "./Content"
 
 
@@ -42,22 +39,19 @@ class Application extends React.Component {
                 <div>
                     <Navigation user={this.state.user} />
                     <Switch>
+                        
                         <Route exact path="/" render = {()=><Home/>}/>
                         <Route exact path="/learning" render={() => <Content user={this.state.user} />} />
-                        <Route exact path="/profile" render={() => <Profile user={this.state.user} />} />
                         <Route
                             path="/auth"
                             render={() => <Auth setUser={this._setUser} resetUser={this._resetUser} />}
                         />
-
-                        
+                   
                         <Route exact path="/blockchain" render={() => <Blockchain/>}/>
-                        <Route exact path="/blockchains" render={() => <Blockchains/>}/>
+                        <Route exact path="/types" render={() => <Types/>}/>
+                        <Route exact path="/dlt" render={() => <DLT/>}/>
                         <Route exact path="/mining" render={() => <Mining/>}/>
-                        <Route exact path="/concensus" render={() => <Concensus/>}/>
-                        <Route exact path="/about" render={() => <About/>}/>
-                        <Route exact path="/proof_of_work" render={() => <Proof/>}/>
-                        <Route exact path="/privacy_policy" render={() => <Policy/>}/>
+                        <Route exact path="/terminology" render={() => <Terminology/>}/>
                         <Route component={NotFound} />
                     </Switch>
                     

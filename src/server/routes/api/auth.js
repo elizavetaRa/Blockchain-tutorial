@@ -46,7 +46,6 @@ router.post('/sign-in', (req, res) => {
         const cleanUser = existingUser.toObject()
 
         delete cleanUser.password
-
         const token = jwt.sign(cleanUser, config.SECRET_JWT_PASSPHRASE)
         res.send({ token })
     })

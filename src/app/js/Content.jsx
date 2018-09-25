@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { throws } from 'assert';
 import api from './utils/api'
 import Blockchain from './Blockchain';
+import Blockchains from './Types';
 import DLT from './DLT';
 import Mining from './Mining';
 import Introduction from './Introduction';
@@ -66,7 +67,7 @@ class Content extends Component {
         else if (this.state.progress == 1) {
             return (<div>
                 <h2>{this.state.progress}</h2>
-                <Blockchain />
+                <Blockchains />
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }
@@ -81,6 +82,14 @@ class Content extends Component {
         else if (this.state.progress == 3) {
             return (<div>
                 <h2>{this.state.progress}</h2>
+                <DLT />
+                <button onClick={this.updateProgress}>Next</button>
+            </div>);
+        }
+
+        else if (this.state.progress == 4) {
+            return (<div>
+                <h2>{this.state.progress}</h2>
                 <Mining />
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
@@ -88,7 +97,7 @@ class Content extends Component {
 
         else return (<div>
             <h2>{this.state.progress}</h2>
-            Error</div>)
+            Congrats, you are a blockchain expert now</div>)
     }
 
 }

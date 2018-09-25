@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Blockchains extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Blockchains</h1>
-            </div>
-        );
-    }
-}
+const Blockchains = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
 
 export default Blockchains;
