@@ -16,7 +16,7 @@ import Policy from "./Policy"
 import Proof from "./Proof"
 import Concensus from "./Concensus"
 import About from "./About"
-import Introduction from "./Introduction"
+import Content from "./Content"
 
 
 
@@ -42,7 +42,7 @@ class Application extends React.Component {
                 <div>
                     <Navigation user={this.state.user} />
                     <Switch>
-                        <Route exact path="/" render={() => <Introduction user={this.state.user} />} />
+                        <Route exact path="/" render={() => <Content user={this.state.user} />} />
                         <Route exact path="/profile" render={() => <Profile user={this.state.user} />} />
                         <Route
                             path="/auth"
