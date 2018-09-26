@@ -1,6 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const User = require("../../models/User");
+const Blockchain = require("../../models/Blockchain");
+const Block = require('../../models/Block')
+
+const SHA256 = require("crypto-js/sha256");
+ 
 
 const authRoutes = require('./auth')
 const { userMiddleware, checkLoggedIn } = require('../../utils/middleware')
@@ -27,6 +32,16 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
 
     let progress;
     User.findById(req.user._id).then(user => {
+        if (user.progress == 4) {
+            let blocklearn = new Chainblock();
+            console.log('Where is our blockchain', blocklearn)
+            // console.log(blocklearn.chain);
+            console.log('logging nothing')
+            // new Block({index: 0})
+            // .save()
+        }
+        
+
         progress = user.progress + 1
         User.findByIdAndUpdate(req.user._id, {
             progress: progress
@@ -38,6 +53,51 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
 
 
 })
+
+class Box {
+    constructor(index, timestamp, data, previousHash = '') {
+        this.index = index;
+        this.timestamp = timestamp;
+        this.data = data;
+        this.previousHash = previousHash;
+        this.hash = this.calculateHash();
+    }
+     calculateHash() {
+        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
+    }
+}
+ class Chainblock {
+    constructor() {
+        this.chain = [this.createGenesisBlock()];
+    }
+     createGenesisBlock() {
+        return new Box (0, "01/01/2018", "Genesis block", "0");
+    }
+     getLatestBlock() {
+        return this.chain[this.chain.length - 1];
+    }
+     addBlock(newBlock) {
+        newBlock.previousHash = this.getLatestBlock().hash;
+        newBlock.hash = newBlock.calculateHash();
+        this.chain.push(newBlock);
+    }
+     isChainvalid(){
+        for(let i = 1; i < this.chain.length; i++){
+            const currentBlock = this.chain[i];
+            const previousBlock = this.chain[i - 1];
+             // checking (recalculating) the hash to test if it is in fact the correct block
+             if(currentBlock.hash !== currentBlock.calculateHash()){
+                return false;
+            }
+            
+            // checking if the current block is pointing to the previous block
+            if(currentBlock.previousHash !== previousBlock.hash){
+                return false;
+            }
+        }
+         return true;
+    }
+}
 
 
 router.post("/blockchain")

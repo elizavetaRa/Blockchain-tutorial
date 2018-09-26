@@ -51,7 +51,7 @@
     {
         "id": 9,
         "name": "Valid hash",
-        "definition": ` For a hash to be valid it needs to reach the difficulty requirement. The difficulty can change depending on how many 0es is needed in front. In this blockchain three leading zeroes are needed to have a valid hash. `
+        "definition": ` For a hash to be valid it needs to reach the difficulty requirement. The difficulty can change depending on how many zeroes is needed in front. In this blockchain three leading zeroes are needed to have a valid hash. `
     },
     {
         "id": 10,
