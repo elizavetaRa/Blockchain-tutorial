@@ -39,7 +39,9 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
             let block = new Block({index: blockchain.chain[0].index, timestamp: blockchain.chain[0].timestamp,
             data: blockchain.chain[0].data}).save().then(block=>{
                 
-                new Blockchain({genesisBlock: block._id}).save()
+                new Blockchain({genesisBlock: block._id}).save().then(blockchain=>{
+                  user.blockchain = blockchain._id   
+                })
                 
             })
         }
@@ -53,8 +55,17 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
         })
 
     })
+})
 
 
+router.get("/blockchain", checkLoggedIn, (req, res) => {
+
+
+    User.findById(req.user._id).then(user => {
+        
+            res.send(user.blockchain)
+                
+            })
 })
 
 class Box {
