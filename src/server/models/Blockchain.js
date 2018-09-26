@@ -3,9 +3,11 @@ const Schema = mongoose.Schema
 
 const blockchainSchema = new Schema({
     genesisBlock: {
-        type: Schema.Types.ObjectId, ref: 'Block'
+        type: Schema.Types.ObjectId, ref: 'Block',
+        autopopulate: true
     },
-    blocks:[{type: Schema.Types.ObjectId, ref: 'Block'}]
+    blocks:[{type: Schema.Types.ObjectId, ref: 'Block', 
+    autopopulate: true}]
 })
 
 module.exports = mongoose.model('Blockchain', blockchainSchema)
