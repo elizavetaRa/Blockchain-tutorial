@@ -6,13 +6,18 @@ const Terms = props => {
     const terms = props.terms
     const mappedTerms = terms.map(el => {
         return (
-            <li key={el.id} className="term-item">
-                <Link to={"/terms/${el.id}"}>
-                    {el.name}
-                    &nbsp;
+            <div>
+                <li key={el.id} className="term-item">
+                    <Link to={"/terms/${el.id}"}>
+                        {el.name}
+                        &nbsp;
                 </Link>
+                </li>
+                <div>
+                    {/* output of {el.definition} */}
+                </div>
+            </div>
 
-            </li>
 
         )
 

@@ -8,7 +8,7 @@ import terms from './data.json'
 class Terminology extends Component {
     render() {
         return (
-            <div className="cotainer">
+            <div className="container">
                 <h1>Important Terms</h1>
                 <Terms terms={terms} />
 

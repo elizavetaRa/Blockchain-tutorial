@@ -1,12 +1,71 @@
 [
     {
         "id": 0,
-        "name": "Peer-to-Peer",
+        "name": "Peer-to-Peer Network",
         "definition": "is a distributed application architecture that partitions tasks or workloads between peers. Peers are equally privileged, equipotent participants in the application. They are said to form a peer-to-peer network of nodes."
     },
     {
-        "id": 0,
-        "name": "Peer-to-Peer",
-        "definition": "is a distributed application architecture that partitions tasks or workloads between peers. Peers are equally privileged, equipotent participants in the application. They are said to form a peer-to-peer network of nodes."
+        "id": 1,
+        "name": "Public Blockchain",
+        "definition": `In a public blockchain anyone can participate, without permission. Public blockchains are based on open source Proof of Work consensus algorithms.
+        Anyone can download the code and start running a public node on their local device, validating transactions in the network, thus participating in the consensus process. In such blockchains anyone can send transactions and see valid transactions. The transactions are transparent but pseudonymised.
+        It is this type of blockchain the Bitcoin blockchain and the Ethereum platform is built upon and which is expected to disrupt the internet as we know it today.`
+    },
+    {
+        "id": 2,
+        "name": "Private Blockchain",
+        "definition": `A private blockchain is permissioned. One cannon join unless invited by the network administrators. This type of blockchains can be considered a middle-ground for companies that are interested in the blockchain technology in general but are not comfortable with a level of control offered by public networks. Typically, they seek to incorporate blockchain into their accounting and record-keeping procedures without sacrificing autonomy and running the risk of exposing sensitive data to the public internet.`
+    },
+    {
+        "id": 3,
+        "name": "Block hash calculation",
+        "definition": `The hashing function takes incoming data and returns a hash representing the entire block. This hash is a combination of index, timestamp, previous hash, block data, and nonce.`
+    },
+    {
+        "id": 4,
+        "name": "Block",
+        "definition":`The blockchain consists of blocks that gets added on each other. Each block consists of an index, a timestamp, a hash, the previous hash, data, and a nonce. ` 
+    },
+    {
+        "id": 5,
+        "name": "Data",
+        "definition": `Each block can contain a small amount of data. Usually this is data about transactions taking place, such as cryptocurrencies exchanging hands. `
+    },
+    {
+        "id": 6,
+        "name": "Genesis Block",
+        "definition": `Every blockchain needs a starting block often referred to as the 'Genesis Block'. Since this block don't have a previous block the previous hash is '0'.`
+    },
+    {
+        "id": 7,
+        "name": "Hash",
+        "definition": `A hash is an alphanumeric value that uniquely identifies data, or the 'digital fingerprint' of data.  
+        `
+    }, 
+    {
+        "id": 8,
+        "name": "Nonce",
+        "definition": `A nonce is a number added to a hashed block which when rehashed meets the difficulty level restrictions. The nonce is the number that blockchain miners are solving for.  
+        `
+    },
+    {
+        "id": 9,
+        "name": "Valid hash",
+        "definition": ` For a hash to be valid it needs to reach the difficulty requirement. The difficulty can change depending on how many 0es is needed in front. In this blockchain three leading zeroes are needed to have a valid hash. `
+    },
+    {
+        "id": 10,
+        "name": "Federated or Consortium Blockchains",
+        "definition": `Federated blockchains are operated under the leadership of a group. Unlike the completely decentralized open and public blockchains, the federated blockchains operate under the leadership of a group.
+        This means only selected individuals can access the blockchain. The consensus process is controlled by a pre-selected set of nodes.
+        Federated blockchains are faster and have higher scalability and provide more transaction privacy. Such blockchains are expected to be particularly popular in the banking sector.`
     }
+    
+
+
 ]
+// {
+//     "id": ,
+//     "name": ,
+//     "definition": 
+// },
