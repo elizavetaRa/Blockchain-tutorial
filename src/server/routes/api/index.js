@@ -33,11 +33,15 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
     let progress;
     User.findById(req.user._id).then(user => {
         if (user.progress == 1) {
-            let blocklearn = new Chainblock();
-            console.log('Where is our blockchain', blocklearn)
+            let blockchain = new Chainblock();
             // console.log(blocklearn.chain);
-            console.log('logging nothing')
-            let block = new Block({index: 0}).save()
+            console.log('logging Block stuff', blockchain.chain[0].index)
+            let block = new Block({index: blockchain.chain[0].index, timestamp: blockchain.chain[0].timestamp,
+            data: blockchain.chain[0].data}).save().then(block=>{
+                
+                new Blockchain({genesisBlock: block._id}).save()
+                
+            })
         }
         
 
