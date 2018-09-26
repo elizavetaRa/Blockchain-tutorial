@@ -88,9 +88,9 @@ router.get("/blockchain", checkLoggedIn, (req, res) => {
 })
 
 router.post("/addblock", checkLoggedIn, (req, res) => {
-    //req.body.bla
+    let data = req.body.data
     User.findById(req.user._id).then(user => {
-
+            box = new Box()
     })
 })
 
@@ -113,12 +113,14 @@ class Chainblock {
         this.chain = [this.createGenesisBlock()];
     }
     createGenesisBlock() {
-        return new Box(0, "01/01/2018", "Genesis block", "0");
+        return new Box(0, new Date(), "Genesis block", "0");
     }
     getLatestBlock() {
         return this.chain[this.chain.length - 1];
     }
     addBlock(newBlock) {
+        newBlock.index = this.getLatestBlock().index+1;
+        newBlock.timestamp = new Date();
         newBlock.previousHash = this.getLatestBlock().hash;
         newBlock.hash = newBlock.calculateHash();
         this.chain.push(newBlock);
