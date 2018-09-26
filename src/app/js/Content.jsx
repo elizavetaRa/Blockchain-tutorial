@@ -12,7 +12,8 @@ class Content extends Component {
         super(props)
 
         this.state = {
-            progress: props.user.progress
+            progress: props.user.progress,
+            blockchain: props.user.blockchain
 
         }
 
@@ -26,10 +27,18 @@ class Content extends Component {
         if (this.props.user) {
 
             api.get("/api/userprogress").then(data => {
-                console.log("Data.progress", data.progress)
                 this.setState({
                     progress: data.progress
                 })
+            })
+
+            api.get("/api/blockchain").then(data=>{
+                console.log("Blockchain call", data)
+                this.setState({
+                    blockchain: data
+                })
+            }).catch(err=>{
+                
             })
 
         }
@@ -72,9 +81,12 @@ class Content extends Component {
             </div>);
         }
         else if (this.state.progress == 2) {
+            
+            console.log("Blockchain from Content render", this.state.blockchain)
+            
             return (<div>
                 <h2>{this.state.progress}</h2>
-                <Blockchain />
+                <Blockchain blockchain = {this.state.blockchain}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }

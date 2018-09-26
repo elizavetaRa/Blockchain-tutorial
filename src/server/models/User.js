@@ -16,7 +16,8 @@ const userSchema = new Schema({
     },
     blockchain: {
         type:  Schema.Types.ObjectId,
-        ref: "Blockchain"
+        ref: "Blockchain",
+        autopopulate: true
     }
 })
 

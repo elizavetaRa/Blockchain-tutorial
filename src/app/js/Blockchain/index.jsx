@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-
+import Block from "./Block"
 class Blockchain extends Component {
+    
+
+    
     render() {
+
+        
+        let a = JSON.stringify(this.props.blockchain);
         return (
-            <div className="container">
-                <h1>Be excited about more things coming!</h1>
+            <div>
+                <Block block = {this.props.blockchain.genesisBlock}/>
+
             </div>
         );
     }

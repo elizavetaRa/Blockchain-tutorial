@@ -5,7 +5,7 @@ const Blockchain = require("../../models/Blockchain");
 const Block = require('../../models/Block')
 
 const SHA256 = require("crypto-js/sha256");
- 
+
 
 const authRoutes = require('./auth')
 const { userMiddleware, checkLoggedIn } = require('../../utils/middleware')
@@ -36,19 +36,30 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
             let blockchain = new Chainblock();
             // console.log(blocklearn.chain);
             console.log('logging Block stuff', blockchain.chain[0].index)
-            let block = new Block({index: blockchain.chain[0].index, timestamp: blockchain.chain[0].timestamp,
-            data: blockchain.chain[0].data}).save().then(block=>{
-                
-                new Blockchain({genesisBlock: block._id}).save().then(blockchain=>{
-                    User.findByIdAndUpdate(req.user._id, {blockchain: blockchain}).then(user => {
+            let block = new Block({
+                index: blockchain.chain[0].index, timestamp: blockchain.chain[0].timestamp,
+                data: blockchain.chain[0].data
+            }).save().then(block => {
+
+                new Blockchain({ genesisBlock: block._id }).save().then(blockchain => {
+                    User.findByIdAndUpdate(req.user._id, { blockchain: blockchain }).then(user => {
                         console.log("Updated", user)
-                        res.send(user)
-                    })  
+                        Blockchain.findById(blockchain._id).populate("blocks")
+                            .then(blockchain => {
+                                Blockchain.findById(blockchain._id).populate("genesisBlock").then(blockchain => {
+                                    res.send(user)
+                                })
+
+                            }
+
+                            )
+
+                    })
                 })
-                
+
             })
         }
-        
+
 
         progress = user.progress + 1
         User.findByIdAndUpdate(req.user._id, {
@@ -63,13 +74,27 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
 
 router.get("/blockchain", checkLoggedIn, (req, res) => {
 
-
     User.findById(req.user._id).then(user => {
-        
-            res.send(user.blockchain)
-                
+
+        Blockchain.findById(user.blockchain).populate("blocks").then(blockchain => {
+            
+            Blockchain.findById(blockchain._id).populate("genesisBlock").then(blockchain => {
+                res.send(blockchain)
             })
+            
+        })
+
+    })
 })
+
+router.post("/addblock", checkLoggedIn, (req, res) => {
+    //req.body.bla
+    User.findById(req.user._id).then(user => {
+
+    })
+})
+
+
 
 class Box {
     constructor(index, timestamp, data, previousHash = '') {
@@ -79,40 +104,40 @@ class Box {
         this.previousHash = previousHash;
         this.hash = this.calculateHash();
     }
-     calculateHash() {
+    calculateHash() {
         return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
     }
 }
- class Chainblock {
+class Chainblock {
     constructor() {
         this.chain = [this.createGenesisBlock()];
     }
-     createGenesisBlock() {
-        return new Box (0, "01/01/2018", "Genesis block", "0");
+    createGenesisBlock() {
+        return new Box(0, "01/01/2018", "Genesis block", "0");
     }
-     getLatestBlock() {
+    getLatestBlock() {
         return this.chain[this.chain.length - 1];
     }
-     addBlock(newBlock) {
+    addBlock(newBlock) {
         newBlock.previousHash = this.getLatestBlock().hash;
         newBlock.hash = newBlock.calculateHash();
         this.chain.push(newBlock);
     }
-     isChainvalid(){
-        for(let i = 1; i < this.chain.length; i++){
+    isChainvalid() {
+        for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i - 1];
-             // checking (recalculating) the hash to test if it is in fact the correct block
-             if(currentBlock.hash !== currentBlock.calculateHash()){
+            // checking (recalculating) the hash to test if it is in fact the correct block
+            if (currentBlock.hash !== currentBlock.calculateHash()) {
                 return false;
             }
-            
+
             // checking if the current block is pointing to the previous block
-            if(currentBlock.previousHash !== previousBlock.hash){
+            if (currentBlock.previousHash !== previousBlock.hash) {
                 return false;
             }
         }
-         return true;
+        return true;
     }
 }
 
