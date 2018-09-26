@@ -1,10 +1,10 @@
-{
+[
     {
         "id": 0,
         "name": "Public Blockchain",
         "definition": `In a public blockchain anyone can participate, without permission. Public blockchains are based on open source Proof of Work consensus algorithms.
         Anyone can download the code and start running a public node on their local device, validating transactions in the network, thus participating in the consensus process. In such blockchains anyone can send transactions and see valid transactions. The transactions are transparent but pseudonymised.
-    It is this type of blockchain the Bitcoin blockchain and the Ethereum platform is built upon and which is expected to disrupt the internet as we know it today.`
+        It is this type of blockchain the Bitcoin blockchain and the Ethereum platform is built upon and which is expected to disrupt the internet as we know it today.`
     },
     {
         "id": 1,
@@ -15,8 +15,7 @@
         "id": 2,
         "name": "Federated or Consortium Blockchains",
         "definition": `Federated blockchains are operated under the leadership of a group. Unlike the completely decentralized open and public blockchains, the federated blockchains operate under the leadership of a group.
-        This means only selected individuals can access the blockchain. The consensus process is controlled by a pre-selected set of nodes.
-        Federated blockchains are faster and have higher scalability and provide more transaction privacy. Such blockchains are expected to be particularly popular in the banking sector.`
+    This means only selected individuals can access the blockchain. The consensus process is controlled by a pre-selected set of nodes.
+    Federated blockchains are faster and have higher scalability and provide more transaction privacy. Such blockchains are expected to be particularly popular in the banking sector.`
     }
-
-}
+]
