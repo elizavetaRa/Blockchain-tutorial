@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "name": "Block",
+        "definition":`The blockchain consists of blocks that gets added on each other. Each block consists of an index, a timestamp, a hash, the previous hash, data, and a nonce. `
+    },
+    {
+        "id": 1,
+        "name": "Data",
+        "definition": `Each block can contain a small amount of data. Usually this is data about transactions taking place, such as cryptocurrencies exchanging hands. `
+    },
+    {
+        "id": 2,
+        "name": "Genesis Block",
+        "definition": `Every blockchain needs a starting block often referred to as the 'Genesis Block'. Since this block don't have a previous block the previous hash is '0'.`
+    },
+    {
+        "id": 3,
+        "name": "Hash",
+        "definition": `A hash is an alphanumeric value that uniquely identifies data, or the 'digital fingerprint' of data.  
+        `
+    },
+    {
+        "id": 4,
+        "name": "Nonce",
+        "definition": `A nonce is a number added to a hashed block which when rehashed meets the difficulty level restrictions. The nonce is the number that blockchain miners are solving for.  
+        `
+    },
+    {
+        "id": 5,
+        "name": "Valid hash",
+        "definition": ` For a hash to be valid it needs to reach the difficulty requirement. The difficulty can change depending on how many 0es is needed in front. In this blockchain three leading zeroes are needed to have a valid hash. `
+    }
+]

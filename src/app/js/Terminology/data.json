@@ -24,7 +24,7 @@
     {
         "id": 4,
         "name": "Block",
-        "definition":`The blockchain consists of blocks that gets added on each other. Each block consists of an index, a timestamp, a hash, the previous hash, data, and a nonce. ` 
+        "definition":`The blockchain consists of blocks that gets added on each other. Each block consists of an index, a timestamp, a hash, the previous hash, data, and a nonce. `
     },
     {
         "id": 5,
@@ -41,7 +41,7 @@
         "name": "Hash",
         "definition": `A hash is an alphanumeric value that uniquely identifies data, or the 'digital fingerprint' of data.  
         `
-    }, 
+    },
     {
         "id": 8,
         "name": "Nonce",
@@ -59,13 +59,40 @@
         "definition": `Federated blockchains are operated under the leadership of a group. Unlike the completely decentralized open and public blockchains, the federated blockchains operate under the leadership of a group.
         This means only selected individuals can access the blockchain. The consensus process is controlled by a pre-selected set of nodes.
         Federated blockchains are faster and have higher scalability and provide more transaction privacy. Such blockchains are expected to be particularly popular in the banking sector.`
+    },
+    {
+        "id": 11,
+        "name": "Blockchain",
+        "definition": `A blockchain is a growing list of records, called blocks, linked together with cryptography (hashing functions) distributed in a peer to peer sharing network. This chain is a decentralized ledger which is synchronized and stored on each node (computer in the network) in a way that makes it practically impossible to modify the transactional data stored on the block. `
+    },
+    {
+        "id": 12,
+        "name": "Distributed Ledger Technology",
+        "definition": `A Distributed Ledger: A blockchain is a ledger distributed in a peer to peer network. Often the term Distributed Ledger Technology and Blockchain are used interchangeably. This can be somewhat misleading since although a blockchain is always a distributed ledger, a distributed ledger doesn't always have to be stored on a chain such a blockchain.
+        The Distributed Ledger is a ledger (database) shared and synchronized by consensus on each node (computer ) in a peer to peer network. However, the ledger doesn't need to consist of blocks and is therefore not always considered a 'Blockchain'.  `
+    },
+    {
+        "id": 13,
+        "name": "Immutability",
+        "definition": `Blockchains uses a combination of cryptographic signatures, merkle chains and a transparent distributed peer to peer consensus system to make the record of transactions practically immutable. This creates a tamper free environment where one does no longer need to trust the record keeper.`
+    },
+    {
+        "id": 14,
+        "name": "Decentralization",
+        "definition": `The decentralized nature of blockchains enabled by unhackable automated transactions means that one doesn't need to rely on decentralized middlemen. By creating trustful decentralizing transactions one can create decentralized systems where middlemen, such as institutions, are not needed.  `
+    },
+    {
+        "id": 15,
+        "name": "Node",
+        "definition": `A node is a computer device on a blockchain network, it can be any active electronic device which is connected to the internet with an IP address.
+        The owners of the nodes contribute computing resources to store and validate transactions on the blockchain.`
+    },
+    {
+        "id": 16,
+        "name": "Proof of Work",
+        "definition":`The proof of work algorithm is used to confirm transactions and produce new blocks to the chain. With PoW, miners compete against each other to complete transactions on the network and get rewarded. 
+        A hash below a target value can only be obtained, on average, by performing a certain amount of brute force work — therefore demonstrating proof of work.
+        `
     }
-    
-
 
 ]
-// {
-//     "id": ,
-//     "name": ,
-//     "definition": 
-// },
