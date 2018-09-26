@@ -40,7 +40,10 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
             data: blockchain.chain[0].data}).save().then(block=>{
                 
                 new Blockchain({genesisBlock: block._id}).save().then(blockchain=>{
-                  user.blockchain = blockchain._id   
+                    User.findByIdAndUpdate(req.user._id, {blockchain: blockchain}).then(user => {
+                        console.log("Updated", user)
+                        res.send(user)
+                    })  
                 })
                 
             })
