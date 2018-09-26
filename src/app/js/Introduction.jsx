@@ -6,6 +6,7 @@ const Introduction = () => {
         <div>
             <h1>Introduction</h1>
             <div className="information"></div>
+            
         </div>
     );
 };
