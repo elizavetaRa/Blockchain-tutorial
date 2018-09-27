@@ -3,6 +3,7 @@ import React from 'react';
 const Block = props => {
 
     let block = props.block
+    if(!block) return null
     return (
         <div>
             <table>

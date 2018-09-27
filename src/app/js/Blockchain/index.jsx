@@ -8,10 +8,6 @@ class Blockchain extends Component {
 
     
     render() {
-
-        console.log(Form)
-        
-        let a = JSON.stringify(this.props.blockchain);
         return (
             <div>
                 <Form/>

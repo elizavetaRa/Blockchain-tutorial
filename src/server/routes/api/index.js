@@ -38,16 +38,22 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
             console.log('logging Block stuff', blockchain.chain[0].index)
             let block = new Block({
                 index: blockchain.chain[0].index, timestamp: blockchain.chain[0].timestamp,
-                data: blockchain.chain[0].data
+                data: blockchain.chain[0].data,
+                hash: "fj483tug45gji4tjg48vdure"
             }).save().then(block => {
 
                 new Blockchain({ genesisBlock: block._id }).save().then(blockchain => {
-                    User.findByIdAndUpdate(req.user._id, { blockchain: blockchain }).then(user => {
-                        console.log("Updated", user)
+                    User.findByIdAndUpdate(req.user._id, { blockchain: blockchain }).populate("blockchain").then(user => {
+
                         Blockchain.findById(blockchain._id).populate("blocks")
                             .then(blockchain => {
                                 Blockchain.findById(blockchain._id).populate("genesisBlock").then(blockchain => {
-                                    res.send(user)
+                                    
+                                    User.findById(req.user._id).populate("blockchain").then(user=>{
+                                       res.send(user) 
+                                    })
+                                    
+                                    
                                 })
 
                             }
@@ -89,9 +95,26 @@ router.get("/blockchain", checkLoggedIn, (req, res) => {
 
 router.post("/addblock", checkLoggedIn, (req, res) => {
     let data = req.body.data
-    User.findById(req.user._id).then(user => {
-            box = new Box();
-            data : data
+    
+    User.findById(req.user._id).populate("blockchain").then(user => {
+            
+        Blockchain.findById(user.blockchain).then(blockchain=>{
+
+            if (blockchain.blocks.length==0){
+                box = new Box({index: 1, timestamp: new Date(), data: data, previousHash: blockchain.genesisBlock.hash});
+                console.log("Hash", box.hash)
+                new Block ({index: box.index, timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash}).save().then(block=>{
+                    Blockchain.findByIdAndUpdate(blockchain._id,
+                    {$push: {blocks: block._id}}, {new: true})
+                    .then(blockchain=>{
+                       console.log("BLOCKCHAIN ", blockchain)
+                        res.send(blockchain)
+                    })
+                })
+            }
+        })
+        
+            //data : data
             // add new Box
             // add all properties from that Box, including data
             // add this Box to the Chainblock

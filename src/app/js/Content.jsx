@@ -21,7 +21,7 @@ class Content extends Component {
 
         this.state = {
             progress: props.user.progress,
-            blockchain: props.user.blockchain
+            blockchain: props.user.blockchain || {}
 
         }
 
@@ -41,12 +41,15 @@ class Content extends Component {
             })
 
             api.get("/api/blockchain").then(data=>{
-                console.log("Blockchain call", data)
+                
+                console.log("Blockchain data recieved", data)
                 this.setState({
                     blockchain: data
+                }, () => {
+
+                    console.log("Blockchain set State", this.state.blockchain)
                 })
-            }).catch(err=>{
-                
+
             })
 
         }
