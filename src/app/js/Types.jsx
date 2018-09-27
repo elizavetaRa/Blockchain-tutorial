@@ -9,6 +9,7 @@ class Types extends Component {
 
         return (
             <div className='container'>
+            <h1>Blockchain Types</h1>
                 <Terminology data={this.props.data} />
 
             </div>
