@@ -40,8 +40,8 @@ class Content extends Component {
                 })
             })
 
-            api.get("/api/blockchain").then(data=>{
-                
+            api.get("/api/blockchain").then(data => {
+
                 console.log("Blockchain data recieved", data)
                 this.setState({
                     blockchain: data
@@ -77,49 +77,64 @@ class Content extends Component {
             return (
 
                 <div className="container">
-                    <h2>Step {this.state.progress}</h2>
-                    <hr/>
-                    <Introduction data={introduction}/>
-                    <button onClick={this.updateProgress}>Next</button>
+                    <div className="header">
+                        <h2>Step {this.state.progress}</h2>
+                        <button onClick={this.updateProgress}>Got it!</button>
+                    </div>
+                   
+                    <Introduction data={introduction} />
+
                 </div>
             );
         }
 
         else if (this.state.progress == 1) {
             return (<div className="container">
-                <h2>Step {this.state.progress}</h2>
-                <hr/>
-                <Blockchains data={variants}/>
-                <button onClick={this.updateProgress}>Next</button>
+                <div className="header">
+                    <h2>Step {this.state.progress}</h2>
+                    <button onClick={this.updateProgress}>Got it!</button>
+                </div>
+                
+                <Blockchains data={variants} />
+
             </div>);
         }
         else if (this.state.progress == 2) {
-            
+
             console.log("Blockchain from Content render", this.state.blockchain)
-            
+
             return (<div className="container">
-                <h2>Step {this.state.progress}</h2>
-                <hr/>
-                <Blockchain data={blockchain} blockchain = {this.state.blockchain}/>
-                <button onClick={this.updateProgress}>Next</button>
+                <div className="header">
+                    <h2>Step {this.state.progress}</h2>
+                    <button onClick={this.updateProgress}>Got it!</button>
+                </div>
+                
+                <Blockchain data={blockchain} blockchain={this.state.blockchain} />
+
             </div>);
         }
 
         else if (this.state.progress == 3) {
             return (<div className="container">
-                <h2>Step {this.state.progress}</h2>
-                <hr/>
-                <DLT data={dlt}/>
-                <button onClick={this.updateProgress}>Next</button>
+                <div className="header">
+                    <h2>Step {this.state.progress}</h2>
+                    <button onClick={this.updateProgress}>Got it!</button>
+                </div>
+            
+                <DLT data={dlt} />
+
             </div>);
         }
 
         else if (this.state.progress == 4) {
             return (<div className="container">
-                <h2>Step {this.state.progress}</h2>
-                <hr/>
-                <Mining data={mining}/>
-                <button onClick={this.updateProgress}>Next</button>
+                <div className="header">
+                    <h2>Step {this.state.progress}</h2>
+                    <button onClick={this.updateProgress}>Got it!</button>
+                </div>
+                
+                <Mining data={mining} />
+
             </div>);
         }
 

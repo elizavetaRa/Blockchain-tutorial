@@ -8,6 +8,7 @@ class Mining extends Component {
             <div className="container">
                 
                 <h1>Mining</h1>
+                <hr/>
                 <Terminology data = {this.props.data}/>
 
             </div>

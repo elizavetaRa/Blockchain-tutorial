@@ -18,6 +18,7 @@ This website is built as a project for the Ironhack bootcamp.
 
                 </p>
             
+            <hr/>
             <Terminology data = {props.data}/>
             <div className="information"></div>
             
