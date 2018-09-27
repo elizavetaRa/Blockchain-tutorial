@@ -7,7 +7,7 @@
     {
         "id": 1,
         "name": "Distributed Ledger Technology",
-        "definition": `A Distributed Ledger: A blockchain is a ledger distributed in a peer to peer network. Often the term Distributed Ledger Technology and Blockchain are used interchangeably. This can be somewhat misleading since although a blockchain is always a distributed ledger, a distributed ledger doesn't always have to be stored on a chain such a blockchain.
+        "definition": `A blockchain is a ledger distributed in a peer to peer network. Often the term Distributed Ledger Technology and Blockchain are used interchangeably. This can be somewhat misleading since although a blockchain is always a distributed ledger, a distributed ledger doesn't always have to be stored on a chain such a blockchain.
         The Distributed Ledger is a ledger (database) shared and synchronized by consensus on each node (computer ) in a peer to peer network. However, the ledger doesn't need to consist of blocks and is therefore not always considered a 'Blockchain'.  `
     },
     {
@@ -18,6 +18,6 @@
     {
         "id": 3,
         "name": "Decentralization",
-        "definition": `The decentralized nature of blockchains enabled by unhackable automated transactions means that one doesn't need to rely on decentralized middlemen. By creating trustful decentralizing transactions one can create decentralized systems where middlemen, such as institutions, are not needed.  `
+        "definition": `The decentralized nature of blockchains enabled by practically unhackable automated transactions means that one doesn't need to rely on decentralized middlemen. By creating trustful decentralizing transactions one can create decentralized systems where middlemen, such as institutions, are not needed.  `
     }
 ]
