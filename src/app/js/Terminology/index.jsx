@@ -15,7 +15,7 @@ class Terminology extends Component {
             
         <BrowserRouter>
             <div className="container">
-                <h1>Important Terms</h1>
+                <h1>To Learn</h1>
                 <Terms terms={terms} />
 
                 <Route path="/terminology/:id"
