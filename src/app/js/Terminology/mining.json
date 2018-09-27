@@ -1,0 +1,9 @@
+[
+    {
+        "id": 16,
+        "name": "Proof of Work",
+        "definition":`The proof of work algorithm is used to confirm transactions and produce new blocks to the chain. With PoW, miners compete against each other to complete transactions on the network and get rewarded. 
+        A hash below a target value can only be obtained, on average, by performing a certain amount of brute force work — therefore demonstrating proof of work.
+        `
+    }
+]

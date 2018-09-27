@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import api from './../utils/api'
 
 class Form extends Component {
 
@@ -39,8 +40,15 @@ class Form extends Component {
     }
 
     _submitData() {
-        //api call
-    }
+        console.log('submitting Data', this.state)
+        api.post('/api/addblock', {
+                data: this.state.data,
+            })
+            .then(result => {
+                console.log(result)
+            })
+        }
+    
 }
 
 

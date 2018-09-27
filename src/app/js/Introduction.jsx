@@ -5,6 +5,7 @@ const Introduction = () => {
     return (
         <div>
             <h1>Introduction</h1>
+            <Terminology data = {this.props.data}/>
             <div className="information"></div>
             
         </div>

@@ -90,7 +90,11 @@ router.get("/blockchain", checkLoggedIn, (req, res) => {
 router.post("/addblock", checkLoggedIn, (req, res) => {
     let data = req.body.data
     User.findById(req.user._id).then(user => {
-            box = new Box()
+            box = new Box();
+            data : data
+            // add new Box
+            // add all properties from that Box, including data
+            // add this Box to the Chainblock
     })
 })
 
@@ -108,6 +112,7 @@ class Box {
         return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
     }
 }
+
 class Chainblock {
     constructor() {
         this.chain = [this.createGenesisBlock()];

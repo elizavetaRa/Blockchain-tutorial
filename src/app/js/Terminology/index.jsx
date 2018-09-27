@@ -3,10 +3,14 @@ import {BrowserRouter, Link, Route } from 'react-router-dom';
 import Terms from "./Terms"
 import Definition from "./Definition"
 
-import terms from './data.json'
+
 
 class Terminology extends Component {
+
+    
+
     render() {
+        let terms = this.props.data;
         return (
             
         <BrowserRouter>
