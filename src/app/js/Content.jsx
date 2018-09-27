@@ -7,6 +7,14 @@ import DLT from './DLT';
 import Mining from './Mining';
 import Introduction from './Introduction';
 
+
+import introduction from './Terminology/introduction.json'
+import blockchain from './Terminology/blockchain.json'
+import variants from './Terminology/variants.json'
+import dlt from './Terminology/distributednetwork.json'
+import mining from './Terminology/mining.json'
+
+
 class Content extends Component {
     constructor(props) {
         super(props)
@@ -67,7 +75,7 @@ class Content extends Component {
 
                 <div>
                     <h2>{this.state.progress}</h2>
-                    <Introduction />
+                    <Introduction data={introduction}/>
                     <button onClick={this.updateProgress}>Next</button>
                 </div>
             );
@@ -76,7 +84,7 @@ class Content extends Component {
         else if (this.state.progress == 1) {
             return (<div>
                 <h2>{this.state.progress}</h2>
-                <Blockchains />
+                <Blockchains data={variants}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }
@@ -86,7 +94,7 @@ class Content extends Component {
             
             return (<div>
                 <h2>{this.state.progress}</h2>
-                <Blockchain blockchain = {this.state.blockchain}/>
+                <Blockchain data={blockchain} blockchain = {this.state.blockchain}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }
@@ -94,7 +102,7 @@ class Content extends Component {
         else if (this.state.progress == 3) {
             return (<div>
                 <h2>{this.state.progress}</h2>
-                <DLT />
+                <DLT data={dlt}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }
@@ -102,7 +110,7 @@ class Content extends Component {
         else if (this.state.progress == 4) {
             return (<div>
                 <h2>{this.state.progress}</h2>
-                <Mining />
+                <Mining data={mining}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }

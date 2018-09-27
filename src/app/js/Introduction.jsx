@@ -1,11 +1,14 @@
 import React from 'react';
 import Terminology from "./Terminology"
 
-const Introduction = () => {
+const Introduction = props => {
+    
+    console.log(props)
+    
     return (
         <div>
             <h1>Introduction</h1>
-            <Terminology data = {this.props.data}/>
+            <Terminology data = {props.data}/>
             <div className="information"></div>
             
         </div>
