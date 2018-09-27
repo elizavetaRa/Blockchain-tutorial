@@ -5,10 +5,14 @@ const DLT = props => {
     return (
         <div className="container">
             <h1>The Distributed Ledger Network</h1>
-            <hr/>
-            <div className="dlt-picture">
+            <hr />
+
+            <div className="dlt">
+                <div className="dlt-picture">
+                </div>
+                <Terminology data={props.data} />
             </div>
-            <Terminology data = {props.data}/>
+
         </div>
     );
 };
