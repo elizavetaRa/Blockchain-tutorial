@@ -15,7 +15,7 @@ class Terminology extends Component {
 
             <BrowserRouter>
                 <div className="terminology">
-                    <h1>To read</h1>
+                    <h2>To learn</h2>
                     <div className="flexy">
                         <Terms terms={terms} />
 
