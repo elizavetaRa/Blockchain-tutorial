@@ -116,9 +116,13 @@ class Content extends Component {
         }
 
         else if (this.state.progress == 3) {
-            return (<div className="container">
-                <div className="header">
-                    <h2>Step {this.state.progress}</h2>
+            return (<div>
+
+                
+                    <div className="header container">
+                        <h2>Step {this.state.progress}</h2>
+                    
+
                     <button onClick={this.updateProgress}>Got it!</button>
                 </div>
 
@@ -128,8 +132,8 @@ class Content extends Component {
         }
 
         else if (this.state.progress == 4) {
-            return (<div className="container">
-                <div className="header">
+            return (<div>
+                <div className="header container">
                     <h2>Step {this.state.progress}</h2>
                     <button onClick={this.updateProgress}>Got it!</button>
                 </div>
@@ -142,7 +146,7 @@ class Content extends Component {
         else return (<div className="container">
             <h1>You did it!</h1>
             <div className="diploma"></div>
-                Congratulations! You have now walked through the steps of the BlockLearn platform and earned your well deserved pixalated diploma.
+            Congratulations! You have now walked through the steps of the BlockLearn platform and earned your well deserved pixalated diploma.
             </div>)
     }
 
