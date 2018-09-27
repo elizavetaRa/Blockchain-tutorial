@@ -76,8 +76,9 @@ class Content extends Component {
         if (this.state.progress == 0) {
             return (
 
-                <div>
-                    <h2>{this.state.progress}</h2>
+                <div className="container">
+                    <h2>Step {this.state.progress}</h2>
+                    <hr/>
                     <Introduction data={introduction}/>
                     <button onClick={this.updateProgress}>Next</button>
                 </div>
@@ -85,8 +86,9 @@ class Content extends Component {
         }
 
         else if (this.state.progress == 1) {
-            return (<div>
-                <h2>{this.state.progress}</h2>
+            return (<div className="container">
+                <h2>Step {this.state.progress}</h2>
+                <hr/>
                 <Blockchains data={variants}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
@@ -95,31 +97,33 @@ class Content extends Component {
             
             console.log("Blockchain from Content render", this.state.blockchain)
             
-            return (<div>
-                <h2>{this.state.progress}</h2>
+            return (<div className="container">
+                <h2>Step {this.state.progress}</h2>
+                <hr/>
                 <Blockchain data={blockchain} blockchain = {this.state.blockchain}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }
 
         else if (this.state.progress == 3) {
-            return (<div>
-                <h2>{this.state.progress}</h2>
+            return (<div className="container">
+                <h2>Step {this.state.progress}</h2>
+                <hr/>
                 <DLT data={dlt}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }
 
         else if (this.state.progress == 4) {
-            return (<div>
-                <h2>{this.state.progress}</h2>
+            return (<div className="container">
+                <h2>Step {this.state.progress}</h2>
+                <hr/>
                 <Mining data={mining}/>
                 <button onClick={this.updateProgress}>Next</button>
             </div>);
         }
 
-        else return (<div>
-            <h2>{this.state.progress}</h2>
+        else return (<div className="container">
             Congrats, you are a blockchain expert now</div>)
     }
 

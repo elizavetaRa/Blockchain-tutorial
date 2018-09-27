@@ -14,6 +14,7 @@ const Definition = props => {
 
     return (
         <div className = "definition">
+        <h4>{matchingTerm.name}</h4>
         <p>{matchingTerm.definition}</p>
             
         </div>

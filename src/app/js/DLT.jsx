@@ -3,7 +3,7 @@ import Terminology from "./Terminology"
 
 const DLT = props => {
     return (
-        <div>
+        <div className="container">
             <h1>The Distributed Ledger Network</h1>
             <div className="dlt-picture">the picture is here
             </div>

@@ -8,7 +8,7 @@ const Navigation = props => {
                 <div>
 
                     <span>
-                        &nbsp; &nbsp; &nbsp;
+                        
                     <Link className="link nav-link" to="/">
                             Home
                     </Link>
