@@ -21,6 +21,7 @@ import blockchain from './Terminology/blockchain.json'
 import variants from './Terminology/variants.json'
 import dlt from './Terminology/distributednetwork.json'
 import mining from './Terminology/mining.json'
+import NewTerminology from './NewTerminology';
 
 
 
@@ -60,7 +61,7 @@ class Application extends React.Component {
                         <Route exact path="/types" render={() => <Types data = {variants}/>}/>
                         <Route exact path="/dlt" render={() => <DLT data = {dlt}/>}/>
                         <Route exact path="/mining" render={() => <Mining data = {mining}/>}/>
-                        <Route exact path="/terminology" render={() => <Terminology data = {data}/>}/>
+                        <Route exact path="/terminology" render={() => <NewTerminology data = {data}/>}/>
                         <Route component={NotFound} />
                     </Switch>
                     
