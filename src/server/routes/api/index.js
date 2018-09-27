@@ -98,12 +98,12 @@ router.post("/addblock", checkLoggedIn, (req, res) => {
     
     User.findById(req.user._id).populate("blockchain").then(user => {
             
-        Blockchain.findById(user.blockchain).then(blockchain=>{
-
+        Blockchain.findById(user.blockchain).populate("genesisBlock").then(blockchain=>{
+            console.log("hhhhhhh", blockchain.genesisBlock)
             if (blockchain.blocks.length==0){
-                box = new Box({index: 1, timestamp: new Date(), data: data, previousHash: blockchain.genesisBlock.hash});
-                console.log("Hash", box.hash)
-                new Block ({index: box.index, timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash}).save().then(block=>{
+                box = new Box(1, new Date(), data, blockchain.genesisBlock.hash);
+                console.log("Hash", box)
+                new Block ({index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash}).save().then(block=>{
                     Blockchain.findByIdAndUpdate(blockchain._id,
                     {$push: {blocks: block._id}}, {new: true})
                     .then(blockchain=>{
