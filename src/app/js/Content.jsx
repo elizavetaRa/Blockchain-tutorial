@@ -142,7 +142,7 @@ class Content extends Component {
         else return (<div className="container">
             <h1>You did it!</h1>
             <div className="diploma"></div>
-            Congrats, you are a blockchain expert now
+                Congratulations! You have now walked through the steps of the BlockLearn platform and earned your well deserved pixalated diploma.
             </div>)
     }
 
