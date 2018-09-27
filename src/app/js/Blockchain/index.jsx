@@ -4,22 +4,21 @@ import Form from "./Form"
 import Terminology from "../Terminology"
 
 class Blockchain extends Component {
-    
-
-    
     render() {
         return (
             <div>
                 <h1>Bulid your blockchain</h1>
-                <hr/>
-                <Form/>
-                
-                <Block block = {this.props.blockchain.genesisBlock}/>
+                <hr />
+                <Form />
 
-                <Terminology data = {this.props.data}/>
+                <Block block={this.props.blockchain && this.props.blockchain.genesisBlock} />
+                {this.props.blockchain && this.props.blockchain.blocks.map(block => (
+                    <Block block={block} />
+                )) }
+                <Terminology data={this.props.data} />
 
             </div>
-        );
+        )
     }
 }
 

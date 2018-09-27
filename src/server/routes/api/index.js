@@ -48,12 +48,12 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
                         Blockchain.findById(blockchain._id).populate("blocks")
                             .then(blockchain => {
                                 Blockchain.findById(blockchain._id).populate("genesisBlock").then(blockchain => {
-                                    
-                                    User.findById(req.user._id).populate("blockchain").then(user=>{
-                                       res.send(user) 
+
+                                    User.findById(req.user._id).populate("blockchain").then(user => {
+                                        res.send(user)
                                     })
-                                    
-                                    
+
+
                                 })
 
                             }
@@ -83,11 +83,15 @@ router.get("/blockchain", checkLoggedIn, (req, res) => {
     User.findById(req.user._id).then(user => {
 
         Blockchain.findById(user.blockchain).populate("blocks").then(blockchain => {
-            
-            Blockchain.findById(blockchain._id).populate("genesisBlock").then(blockchain => {
+
+            Blockchain.findById(blockchain._id)
+            .populate("genesisBlock")
+            .populate("blocks")
+            .then(blockchain => {
+                console.log
                 res.send(blockchain)
             })
-            
+
         })
 
     })
@@ -95,29 +99,70 @@ router.get("/blockchain", checkLoggedIn, (req, res) => {
 
 router.post("/addblock", checkLoggedIn, (req, res) => {
     let data = req.body.data
-    
+
     User.findById(req.user._id).populate("blockchain").then(user => {
-            
-        Blockchain.findById(user.blockchain).populate("genesisBlock").then(blockchain=>{
+
+        Blockchain.findById(user.blockchain).populate("genesisBlock").then(blockchain => {
             console.log("hhhhhhh", blockchain.genesisBlock)
-            if (blockchain.blocks.length==0){
-                box = new Box(1, new Date(), data, blockchain.genesisBlock.hash);
+            if (blockchain.blocks.length == 0) {
+                let box = new Box(1, new Date(), data, blockchain.genesisBlock.hash);
                 console.log("Hash", box)
-                new Block ({index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash}).save().then(block=>{
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
                     Blockchain.findByIdAndUpdate(blockchain._id,
-                    {$push: {blocks: block._id}}, {new: true})
-                    .then(blockchain=>{
-                       console.log("BLOCKCHAIN ", blockchain)
-                        res.send(blockchain)
-                    })
+                        { $push: { blocks: block._id } }, { new: true })
+                        .then(blockchain => {
+                            console.log("BLOCKCHAIN ", blockchain)
+                            res.send(blockchain)
+                        })
                 })
+            } else if (blockchain.blocks.length == 1){
+
+                let box = new Box(2, new Date(), data, blockchain.blocks[0].hash);
+
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
+                    Blockchain.findByIdAndUpdate(blockchain._id,
+                        { $push: { blocks: block._id } }, { new: true })
+                        .then(blockchain => {
+                            console.log("BLOCKCHAIN ", blockchain)
+                            res.send(blockchain)
+                        })
+                })
+
+            } else if (blockchain.blocks.length == 2){
+
+                let box = new Box(3, new Date(), data, blockchain.blocks[1].hash);
+
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
+                    Blockchain.findByIdAndUpdate(blockchain._id,
+                        { $push: { blocks: block._id } }, { new: true })
+                        .then(blockchain => {
+                            console.log("BLOCKCHAIN ", blockchain)
+                            res.send(blockchain)
+                        })
+                })
+
             }
+            else if (blockchain.blocks.length == 3){
+
+                let box = new Box(4, new Date(), data, blockchain.blocks[2].hash);
+
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
+                    Blockchain.findByIdAndUpdate(blockchain._id,
+                        { $push: { blocks: block._id } }, { new: true })
+                        .then(blockchain => {
+                            console.log("BLOCKCHAIN ", blockchain)
+                            res.send(blockchain)
+                        })
+                })
+
+            }
+
         })
-        
-            //data : data
-            // add new Box
-            // add all properties from that Box, including data
-            // add this Box to the Chainblock
+
+        //data : data
+        // add new Box
+        // add all properties from that Box, including data
+        // add this Box to the Chainblock
     })
 })
 
@@ -147,7 +192,7 @@ class Chainblock {
         return this.chain[this.chain.length - 1];
     }
     addBlock(newBlock) {
-        newBlock.index = this.getLatestBlock().index+1;
+        newBlock.index = this.getLatestBlock().index + 1;
         newBlock.timestamp = new Date();
         newBlock.previousHash = this.getLatestBlock().hash;
         newBlock.hash = newBlock.calculateHash();

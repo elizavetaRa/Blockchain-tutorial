@@ -21,7 +21,8 @@ class Content extends Component {
 
         this.state = {
             progress: props.user.progress,
-            blockchain: props.user.blockchain || {}
+            // blockchain: props.user.blockchain || {}
+            blockchain: null
 
         }
 
