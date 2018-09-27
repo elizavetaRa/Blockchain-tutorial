@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Block from "./Block"
 import Form from "./Form"
+import Terminology from "../Terminology"
+
 class Blockchain extends Component {
     
 
@@ -15,6 +17,8 @@ class Blockchain extends Component {
                 <Form/>
                 
                 <Block block = {this.props.blockchain.genesisBlock}/>
+
+                <Terminology data = {this.props.data}/>
 
             </div>
         );

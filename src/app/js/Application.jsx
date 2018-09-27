@@ -50,7 +50,7 @@ class Application extends React.Component {
                     <Switch>
                         
                         <Route exact path="/" render = {()=><Home/>}/>
-                        <Route exact path="/learning" render={() => <Content user={this.state.user} />} />
+                        <Route exact path="/learning" render={() => <Content data1= {introduction} data2= {blockchain} user={this.state.user} />} />
                         <Route
                             path="/auth"
                             render={() => <Auth setUser={this._setUser} resetUser={this._resetUser} />}
