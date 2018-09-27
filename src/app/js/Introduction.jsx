@@ -8,6 +8,7 @@ const Introduction = props => {
     return (
         <div>
             <h1>Introduction</h1>
+            <hr/>
             <Terminology data = {props.data}/>
             <div className="information"></div>
             

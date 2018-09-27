@@ -10,6 +10,8 @@ class Blockchain extends Component {
     render() {
         return (
             <div>
+                <h1>Bulid your blockchain</h1>
+                <hr/>
                 <Form/>
                 
                 <Block block = {this.props.blockchain.genesisBlock}/>
