@@ -8,9 +8,11 @@ class Types extends Component {
         console.log('the best log', this.props.data);
 
         return (
-            <div className='container'>
+            <div className='types'>
+            <hr/>
             <h1>Blockchain Types</h1>
-                <Terminology data={this.props.data} />
+            
+            <Terminology data={this.props.data} />
 
             </div>
         );

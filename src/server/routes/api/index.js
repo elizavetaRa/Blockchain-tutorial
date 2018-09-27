@@ -39,7 +39,7 @@ router.post("/userprogress", checkLoggedIn, (req, res) => {
             let block = new Block({
                 index: blockchain.chain[0].index, timestamp: blockchain.chain[0].timestamp,
                 data: blockchain.chain[0].data,
-                hash: "fj483tug45gji4tjg48vdure"
+                hash: "3215723f53b69f62e7b3bb7a49934c9728e9df44ca65da6b8172d28fe511a872"
             }).save().then(block => {
 
                 new Blockchain({ genesisBlock: block._id }).save().then(blockchain => {
@@ -107,7 +107,7 @@ router.post("/addblock", checkLoggedIn, (req, res) => {
             if (blockchain.blocks.length == 0) {
                 let box = new Box(1, new Date(), data, blockchain.genesisBlock.hash);
                 console.log("Hash", box)
-                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previoushash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
                     Blockchain.findByIdAndUpdate(blockchain._id,
                         { $push: { blocks: block._id } }, { new: true })
                         .then(blockchain => {
@@ -119,7 +119,7 @@ router.post("/addblock", checkLoggedIn, (req, res) => {
 
                 let box = new Box(2, new Date(), data, blockchain.blocks[0].hash);
 
-                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previoushash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
                     Blockchain.findByIdAndUpdate(blockchain._id,
                         { $push: { blocks: block._id } }, { new: true })
                         .then(blockchain => {
@@ -132,7 +132,7 @@ router.post("/addblock", checkLoggedIn, (req, res) => {
 
                 let box = new Box(3, new Date(), data, blockchain.blocks[1].hash);
 
-                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previoushash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
                     Blockchain.findByIdAndUpdate(blockchain._id,
                         { $push: { blocks: block._id } }, { new: true })
                         .then(blockchain => {
@@ -146,7 +146,7 @@ router.post("/addblock", checkLoggedIn, (req, res) => {
 
                 let box = new Box(4, new Date(), data, blockchain.blocks[2].hash);
 
-                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previousHash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
+                new Block({ index: parseInt(box.index), timestamp: box.timestamp, data: box.data, previoushash: "frdt435t4ver5t45z664", hash: box.hash }).save().then(block => {
                     Blockchain.findByIdAndUpdate(blockchain._id,
                         { $push: { blocks: block._id } }, { new: true })
                         .then(blockchain => {

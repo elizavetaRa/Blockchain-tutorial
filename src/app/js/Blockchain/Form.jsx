@@ -18,7 +18,7 @@ class Form extends Component {
 
     render() {
         return (
-            <div>
+            <div className="createblock">
                 <input
                     type="text"
                     value={this.state.data}
@@ -26,7 +26,7 @@ class Form extends Component {
                     onChange={evt => this._inputChangeHandler(evt.target.value)}
                 />
 
-                <button onClick={this._submitData}>Create new Block</button>
+                <button onClick={this._submitData}>New Block</button>
             </div>
         );
 
