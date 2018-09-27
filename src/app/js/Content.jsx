@@ -82,7 +82,7 @@ class Content extends Component {
                         <h2>Step {this.state.progress}</h2>
                         <button onClick={this.updateProgress}>Got it!</button>
                     </div>
-                   
+
                     <Introduction data={introduction} />
 
                 </div>
@@ -95,7 +95,7 @@ class Content extends Component {
                     <h2>Step {this.state.progress}</h2>
                     <button onClick={this.updateProgress}>Got it!</button>
                 </div>
-                
+
                 <Blockchains data={variants} />
 
             </div>);
@@ -109,7 +109,7 @@ class Content extends Component {
                     <h2>Step {this.state.progress}</h2>
                     <button onClick={this.updateProgress}>Got it!</button>
                 </div>
-                
+
                 <Blockchain data={blockchain} blockchain={this.state.blockchain} />
 
             </div>);
@@ -121,7 +121,7 @@ class Content extends Component {
                     <h2>Step {this.state.progress}</h2>
                     <button onClick={this.updateProgress}>Got it!</button>
                 </div>
-            
+
                 <DLT data={dlt} />
 
             </div>);
@@ -133,14 +133,17 @@ class Content extends Component {
                     <h2>Step {this.state.progress}</h2>
                     <button onClick={this.updateProgress}>Got it!</button>
                 </div>
-                
+
                 <Mining data={mining} />
 
             </div>);
         }
 
         else return (<div className="container">
-            Congrats, you are a blockchain expert now</div>)
+            <h1>You did it!</h1>
+            <div className="diploma"></div>
+            Congrats, you are a blockchain expert now
+            </div>)
     }
 
 }
