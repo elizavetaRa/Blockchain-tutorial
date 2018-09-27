@@ -1,9 +1,34 @@
 [
     {
-        "id": 16,
+        "id": 1,
+        "name": "Mining",
+        "definition": `The process of determining this nonce is called mining.
+
+        We start with a nonce of 0 and keep incrementing it by 1 until we find a valid hash.
+        As difficulty increases, the number of possible valid hashes decreases. With fewer possible valid hashes, it takes more processing power to find a valid hash.
+
+If the hash on the block is invalid, click on the tool button to mine the genesis block!`
+    },
+    {
+        "id": 2,
         "name": "Proof of Work",
         "definition":`The proof of work algorithm is used to confirm transactions and produce new blocks to the chain. With PoW, miners compete against each other to complete transactions on the network and get rewarded. 
         A hash below a target value can only be obtained, on average, by performing a certain amount of brute force work — therefore demonstrating proof of work.
+        `
+    },
+    {
+        "id": 3,
+        "name": "Electricity costs",
+        "definition": `The original and still most popular blockchain application namely the Bitcoin still uses Proof of Work to confirm transactions. Ever since its inception Bitcoin’s trust-minimizing consensus has been enabled by its proof-of-work algorithm. The machines performing the “work” are consuming huge amounts of energy while doing so.
+        It is estimated that the bitcoin network uses enough electricity to power over 5.5 million United States households. `
+    },
+    {
+        "id": 4,
+        "name": "Proof of Stake",
+        "definition":`Proof of stake is a different way to validate transactions and achieve the distributed consensus which uses considerably less electricity than Proof of Work.
+
+        It is still an algorithm, and the purpose is the same of the proof of work, but the process to reach the goal is quite different.
+        
         `
     }
 ]

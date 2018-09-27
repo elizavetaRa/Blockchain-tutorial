@@ -1,18 +1,25 @@
 [
     {
         "id": 0,
-        "name": "Block",
+        "name": "The Block",
         "definition":`The blockchain consists of blocks that gets added on each other. Each block consists of an index, a timestamp, a hash, the previous hash, data, and a nonce. `
+    },
+    {
+        "id": 6,
+        "name": "Index",
+        "definition": `The index shows which the block has in the chain.
+
+        Genesisblock has an index of 0 and then the next block will have an index of 1.`
+    },
+    {
+        "id": 7,
+        "name": "Timestamp",
+        "definition": `The timestamp keeps a record of when the block was created`
     },
     {
         "id": 1,
         "name": "Data",
         "definition": `Each block can contain a small amount of data. Usually this is data about transactions taking place, such as cryptocurrencies exchanging hands. `
-    },
-    {
-        "id": 2,
-        "name": "Genesis Block",
-        "definition": `Every blockchain needs a starting block often referred to as the 'Genesis Block'. Since this block don't have a previous block the previous hash is '0'.`
     },
     {
         "id": 3,
@@ -30,5 +37,10 @@
         "id": 5,
         "name": "Valid hash",
         "definition": ` For a hash to be valid it needs to reach the difficulty requirement. The difficulty can change depending on how many 0es is needed in front. In this blockchain three leading zeroes are needed to have a valid hash. `
+    },
+    {
+        "id": 2,
+        "name": "Genesis Block",
+        "definition": `Every blockchain needs a starting block often referred to as the 'Genesis Block' which is hardcoded and has no hash pointer to a previous block.`
     }
 ]
