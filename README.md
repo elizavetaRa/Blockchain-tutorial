@@ -1,16 +1,6 @@
-# React + express starter template, by Lukas
+https://blocklearn.herokuapp.com/
 
-1. Clone or copy this repository
-2. `npm install`
-3. Change the DB name in `src/server/config.js`
-4. `npm run dev`
-5. Go to `http://localhost:3000`
+This web application will guide you through the basic elements of a blockchain. Click on Learning in the navbar to start the learning steps. After going through the learning steps you may be granted your BlockLearn certificate.
 
--   We're using parcel.js to bundle our javascript files (as well as scss)
--   Additionally, we use babel to transform our code
 
-## Deployment
-
-This setup is ready to deploy to Heroku. Simply connect your github repository to Heroku and trigger a deployment or activate automatic deployments.
-
-Do not forget to install the mlab plugin in Heroku.
+The BlockLearn learning platfrom is built on the SIGNAL-coin blockchain as the final project at the Ironhack bootcamp. The SIGNAL-coin is a basic blockchain built in javascript.
